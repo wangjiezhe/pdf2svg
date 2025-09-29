@@ -69,11 +69,6 @@ int convertPage(PopplerPage *page, const char* svgFilename)
 	cairo_svg_surface_set_document_unit(surface, CAIRO_SVG_UNIT_PT);
 	drawcontext = cairo_create(surface);
 
-	// Draw white background
-	cairo_set_source_rgb(drawcontext, 1.0, 1.0, 1.0); // white
-	cairo_rectangle(drawcontext, 0, 0, width * scale, height * scale);
-	cairo_fill(drawcontext);
-
 	// Render the PDF file into the SVG file
 	cairo_scale(drawcontext, scale, scale);
 	poppler_page_render_for_printing(page, drawcontext);
